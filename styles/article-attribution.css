@@ -1,0 +1,14 @@
+.attribution {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 1.25em;
+}
+
+.attribution .text {
+    font: 'Roboto';
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-left: 6px;
+}

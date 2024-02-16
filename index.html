@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i">
+    <link rel="stylesheet" href="styles/reset.css">
+    <!--     <link rel="stylesheet" href="styles/debug.css"> -->
+    <link rel="stylesheet" href="styles/article.css">
+    <link rel="stylesheet" href="styles/article-image.css">
+    <link rel="stylesheet" href="styles/article-figure.css">
+    <link rel="stylesheet" href="styles/article-text.css">
+    <link rel="stylesheet" href="styles/article-share.css">
+    <link rel="stylesheet" href="styles/article-attribution.css">
+    <title>Ensayos | Tecnocultura</title>
+</head>
+
+<body>
+    <article id="una-muneca-rusa">
+        <h1><a class="link" href="#una-muneca-rusa">Una muñeca rusa</a></h1>
+        <br>
+        <time datetime="16-02-2024">FEB. 16, 2024</time>
+        <br><br>
+        <h2 class="header"><em>Entre las célebres muñecas múltiples de los artesanos rusos y la teoría de los fractales,
+                la recursión es uno de los elementos más utilizados en el mundo de la programación para la resolución de
+                problemas. Ante el riesgo de caer en lo ininteligible, el ensayo que sigue se aventura a describir sus
+                premisas.</em></h2>
+
+        <figure class="size-2">
+            <img src="images/russian_doll.jpg" alt="Una muñeca rusa desarmada" height="480.638px">
+        </figure>
+        <figcaption>
+            <p>Muñecas rusas (Didssph - Unsplash)</em></p>
+        </figcaption>
+
+        <p>
+            En la tradición artística y literaria se llama puesta en abismo (<em>mise en abyme</em>) a un procedimiento
+            habitual
+            cuyo objetivo es llamar la atención del receptor sobre la naturaleza potencialmente infinita del universo
+            que habita. Emparentado con la teoría de los fractales, este recurso también enfatiza cómo la repetición de
+            patrones (al estilo del precepto barroco de que todo elemento en la tierra posee una correspondencia
+            celeste, o en la línea gótica de la figura del <em>Doppelgänger</em>) gobierna secretamente la trama de las
+            vidas de
+            este mundo. En el campo de la programación, un concepto similar ha sido ampliamente utilizado para la
+            construcción de algoritmos eficientes y la solución de algunos problemas específicos. Su nombre es
+            recursión, y tanto me costó ejercerlo en la práctica que me gustará intentar explicarlo con palabras. Tal
+            vez de esa manera pueda por fin utilizarlo sin sufrir, por enésima vez, la estrepitosa caída en el loop
+            infinito.
+        </p>
+
+        <h3>Reducir el problema </h3>
+        <p>
+            El punto de partida para la utilización del procedimiento recursivo es la abstracción del problema que desea
+            resolverse con el fin de reducir su dimensión. A diferencia de otros métodos de resolución de problemas, que
+            toman a este como un objeto desarmable en piezas menores en la búsqueda de una resolución más sencilla
+            (métodos que siguen la teoría del "divide y vencerás", en la cual son centrales estrategias como la
+            modularización o el tipo de diseño top-down y bottom-up, entre otros), en el caso de la recursión se trata,
+            como hablábamos para el caso de la <em>mise en abyme</em>, del reconocimiento de un patrón. El patrón se
+            repite, de
+            manera idéntica, pero a una escala de menor tamaño.
+            <br>
+            Un procedimiento de este tipo ha sido aplicado por algunos filósofos que se han encontrado creando
+            paradojas. Algunas de ellas están reunidas en un breve texto de J.L. Borges titulado "Avatares de la
+            tortuga". En esos párrafos Borges recupera varias de las que denomina "regresiones al infinito", incluyendo
+            la célebre de Zenón sobre un Aquiles nunca capaz de alcanzar a la tortuga, porque el recorrido de un
+            trayecto implica primero atravesar la mitad de su longitud, y antes la mitad de la mitad, transformando la
+            llegada al destino en una imposibilidad teórica. Sin embargo, en la recursión informática, una reducción del
+            problema siempre latente derivaría en la imposibilidad de resolución. En casos como ese, caemos en un bucle
+            infinito, que en términos de utilización de recursos termina por desbordar la memoria disponible para el
+            manejo de datos, provocando así el colapso del sistema. Entonces, la reducción del problema tendrá que
+            seguir un procedimiento diferente. Este procedimiento resulta similar al de los artesanos rusos cuando
+            realizan el diseño de sus famosas <em>matrioshkas</em>: en un punto dado, se define la dimensión de la
+            muñeca más
+            pequeña, la que estará encargada de ocupar el centro sobre el cual se irán apilando las muñecas de mayor
+            dimensión. En las soluciones recursivas, el equivalente de esta muñeca es llamado un caso base: un punto
+            dado en el cual el problema ya no puede reducirse, y cuya resolución resultad sencilla no ya para la enorme
+            capacidad de cálculo de un procesador, sino también para quienes, como es mi caso, padecemos una total y
+            casi incurable torpeza en el campo matemático.
+        </p>
+
+        <h3>Pilas de datos</h3>
+
+        <figure class="size-2">
+            <img src="images/data_stacks.jpg" alt="Pilas de libros y revistas" height="480.638px">
+        </figure>
+        <figcaption>
+            <p>Datos apilados (Carles Rabada - Unsplash)</p>
+        </figcaption>
+
+        <p>
+            Habiendo abstraído el problema para comprobar que la recursión es una vía adecuada para solucionarlo, un
+            elemento importante para usarlo correctamente es entender cómo funciona la memoria en los dispositivos
+            electrónicos. La santísima trinidad de la organización de las computadoras, que resiste al tiempo y es aún
+            la dominante para su construcción, fue establecida ya en la década de 1940 por el matemático John Von
+            Neumann. Los tres elementos de esta arquitectura eran la Unidad Central de Procesamiento (CPU para los
+            mortales, el lugar donde reside la Unidad Aritmético-Lógica y se realizan las operaciones entre datos), el
+            subsistema de Entrada y de Salida (que permite a los usuarios ingresar datos y tener acceso al resultado de
+            su procesamiento), y la Memoria Principal. Antes de la posibilidad de implementar una memoria que pudiera
+            guardar datos durante la ejecución de los programas, cada nuevo procesamiento era una laboriosa tarea que
+            incluía cables conectados y desconectados de forma manual. La memoria produjo entonces un salto cualitativo
+            y cuantitativo para el avance de las ciencias de la computación de la época. ¿Pero qué vendría a ser la
+            memoria en este sencillo modelo tripartito en la organización de una PC?
+            <br>
+            Para ponerlo en forma simple, podemos imaginar a la memoria como una elemental planilla de Excel: cada celda
+            que vemos en las columnas de la planilla puede asociarse con una dirección en la memoria de datos de la
+            computadora. Para llevar la analogía a una simplificación mayor, digamos que la memoria de una computadora
+            (y para los primeros tiempos se hubiera considerado como una capacidad de memoria relevante) podría
+            representarse con la columna A de la planilla de Excel, desde la primera fila hasta la posición mil (la
+            última, por defecto, en el programa). Agreguemos que cada celda permite guardar instrucciones genéricas. La
+            memoria de nuestro dispositivo imaginario tendrá entonces la posibilidad de guardar hasta 1000
+            instrucciones, después de lo cual se produciría lo que se conoce como desborde o "stack overflow".
+            <br>
+            Como sucede en general, las palabras utilizadas para definir a las cosas tienen una fuerza distintiva, pero
+            en el caso particular de la descripción de los fenómenos informáticos las metáforas que definen sus procesos
+            son especialmente gráficas. Para el caso mencionado, el término "stack" hace referencia a una pila. Cuando
+            se llega al límite de la capacidad en el espacio de memoria lo que sucede es que esa pila "se desborda". Es
+            fácil ver la pila en nuestra memoria imaginaria representada por la primera columna de mil celdas en la
+            planilla de Excel. Cada instrucción de un programa que fuera a cargarse en la memoria sería ubicada en forma
+            secuencial, consecutiva, en una celda de esta pila. Para que esta disposición concuerde de manera más exacta
+            con la idea de una pila, cada instrucción se iría almacenando de abajo para arriba: primero en la fila 1000,
+            después en la 999, y así siguiendo hasta la uno, que representaría el tope de la pila. De este modo, entre
+            otros, podría funcionar la memoria de una pequeña computadora imaginaria.
+        </p>
+
+        <h3>El caso recursivo modelo</h3>
+
+        <figure class="size-2">
+            <img src="images/fractal_effect.jpg"
+                alt="Un diseño de fractales en la cúpula de una construcción arquitectónica" height="480.638px">
+        </figure>
+        <figcaption>
+            <p>Un fractal y su expansión recursiva (Ranjeer Chauhan - Pexels)</p>
+        </figcaption>
+
+        <p>
+            Un caso de uso para aplicar la recursión en el ámbito informático, modélico por su sencillez, es el cálculo
+            de un número factorial. El factorial de un número entero X es el resultado de multiplicar todos los números
+            enteros consecutivos que van desde 1 hasta X. Veamos este problema a la luz de lo planteado en los apartados
+            previos: supongamos que queremos conocer el factorial del número 4. Según la definición dada, el factorial
+            de 4 sería la multiplicación de los números de 1 hasta 4, es decir: 1 * 2 * 3 * 4. ¿Cómo diseñar una función
+            recursiva que resuelva esta simple operación aritmética? Como hemos afirmado, lo que buscamos es reducir el
+            problema inicial en unidades más pequeñas, cuya lógica de resolución sea idéntica pero a menor escala. En
+            este caso, podríamos decir que el factorial de 4 es igual a multiplicar 4 veces el factorial de 3. Anotemos
+            entonces: 4 * (3 * 2 * 1). Podemos hacer lo mismo con el factorial de 3, que será 3 veces el factorial de 2
+            = 3 * (2 * 1). Finalmente el factorial de 2 es, casi redundante decirlo, 2 veces el factorial de 1.
+            Generalizando estas consideraciones, podríamos afirmar que para un número genérico X, su número factorial
+            será el resultado de X multiplicado por el factorial de X-1. Esta generalización es importante para la
+            resolución recursiva del problema. El otro elemento que consideramos clave para una solución recursiva es la
+            identificación de un caso base que nos salve de la posible caída en un bucle infinito. En este caso, una
+            definición matemática nos da la pauta para definir el caso base: aunque parezca un poco sin sentido, el
+            factorial del número 0 es igual 1 (una de esas cosas que quienes estudiamos en la Facultad de Humanidades
+            nos veríamos en la tentación de discutir hasta el hartazgo, pero que en las ciencias exactas se toman como
+            una premisa incuestionable; dicho sea de paso, para el ejemplo que estamos presentando mejor es que así
+            sea). Ya sabemos entonces cuál es la muñeca rusa que ocupará el núcleo central de la *matrioshka*: el
+            cálculo del factorial de 0, cuyo resultado siempre es 1. Veamos ahora el diseño de una solución posible a
+            este problema.
+        </p>
+
+        <h3>El ejemplo en acción y el efecto de boomerang</h3>
+
+        <p>
+            Antes de terminar déjenme hacer un <em>disclaimer</em>: apenas me encuentro estudiando los rudimentos de
+            Python, un versátil lenguaje multiplataforma que permite realizar muchas tareas, desde el desarrollo web
+            hasta el análsis de datos y el procesamiento de lenguaje natural. Por este motivo ruego a cualquier hábil
+            pythonista que se saltee esta sección sin culpa alguna. Hecha la advertencia, terminemos con el tema. La
+            idea es entonces definir una función que resuelva de modo recursivo el cálculo de números factoriales.
+            Después de hecho esto, intentaremos explicitar cómo la interacción con la memoria de datos es fundamental
+            para entender cómo funciona el concepto recursivo. Pero primero lo primero, la función escrita en Python:
+        </p>
+        <pre>
+            <code>
+  def factorial (num: int):
+
+    if num == 0:
+
+      return 1
+
+    else:
+
+      return num * factorial(num - 1)
+            </code>
+        </pre>
+        <p>
+            Estas cinco líneas de código resuelven de modo recursivo el cálculo del número factorial para cualquier
+            número entero positivo. Veamos de a poco las partes que lo integran: el término <em>def</em> es una palabra
+            reservada en Python para declarar una función, a la que nombramos "factorial". Entre paréntesis se
+            especifica la cantidad y el tipo de parámetros que la función puede recibir. En este caso, para resolver el
+            cálculo requerido la función espera recibir un número ("num") de caracter entero (<em>int</em>, del inglés
+            "integer"). Luego de la definición (lo que se llama "la firma" de la función) está la lógica básica, el
+            cuerpo de la función. Este consiste en declarar el caso base de manera explícita: el número debe ser igual a
+            0 para que la menor de las muñecas haya sido encontrada. Mientras esto no suceda, la función volverá a
+            invocarse a sí misma, en lo que es por definición la instrucción recursiva del caso: el retorno de "num"
+            multiplicando la función "factorial" de "num" - 1 es la traducción exacta de la generalización previa de la
+            función factorial de X como X multiplicado el factorial de X - 1. El pasaje de "num - 1" como parámetro de
+            la nueva invocación garantiza que en un momento dado el número recibido como parámetro por la función
+            "factorial" efectivamente valdrá 0. Cuando esto suceda, se darán por finalizados los llamados recursivos.
+        </p>
+        <figure class="size-2">
+            <img src="images/notebook_recursion.jpg" alt="Sucesión repetida de una Notebook dentro de otra Notebook">
+        </figure>
+        <figcaption>
+            <p>Reflejo recursivo (Thomas - Flickr)</p>
+        </figcaption>
+
+        <p>
+            Veamos ahora cómo esto se ejecuta interactuando con la memoria ficticia esbozada más arriba. Si queremos
+            calcular el factorial del número 4, este número es el que la función deberá recibir como parámetro para
+            empezar
+            a ejecutarse. De este modo, el llamado a la función definida será: factorial (4). Una vez invocada, la
+            función
+            se carga en la memoria. Como se ha dicho, cada celda en la memoria guarda una de las instrucciones
+            definidas
+            del
+            programa. En este caso tenemos cuatro líneas en el cuerpo de la función, por lo cual hay cuatro
+            instrucciones, y
+            cada llamado a la función implicará la ocupación de cuatro celdas en la pila. Hay que decir, además, que
+            habrá
+            una celda vacía, en este caso, que será la encargada de guardar lo que se denomina el "valor de retorno"
+            de
+            la
+            función (el valor devuelto cuando la instrucción utiliza la palabra *return*). Veamos paso a paso cómo
+            se
+            ejecutará la función factorial:
+            <br>
+            <strong>1.</strong> se compara el número recibido por parámetro con el número de nuestro caso base. Como 4
+            es
+            distinto
+            que 0,
+            el
+            bloque dentro de la sentencia "if" es ignorada, y la función se bifurca hacia el bloque "else";
+            <br>
+            <strong>2.</strong> el bloque "else" asume que el valor recibido ha sido previamente validado. Como es
+            todavía mayor a 0,
+            la
+            función vuelve a invocarse a sí misma (lo que será el llamado recursivo), pero esta vez restando en uno
+            el
+            valor
+            recibido como parámetro. Traducida a números, la última línea de la función sería: return 4 * factorial
+            (4 -
+            1).
+            En este punto, la función factorial vuelve a apilarse en la memoria, pero esta vez con el 3 como número
+            recibido;
+            <br>
+            <strong>3.</strong> la nueva función invocada repite la comparación entre "num" y 0; como la diferencia
+            continúa, la
+            función
+            accede nuevamente al bloque "else", ejecutando la instrucción que, traducida, quedaría como sigue:
+            return 3
+            *
+            factorial (3 - 1);
+            <br>
+            <strong>4.</strong> el proceso se repite. 2 difiere de 0 y la función vuelve a autoinvocarse: return 2 *
+            factorial (2 -
+            1);
+            <br>
+            <strong>5.</strong> por última vez los mismos pasos se ejecutan de manera análoga: 1 es mayor que 0; en el
+            bloque "else"
+            la
+            sentencia será equivalente a 1 * factorial (1 - 1).
+            <br>
+            Como podemos observar, en esta dinámica de llamados recursivos el problema se reduce hasta llegar al
+            caso
+            base,
+            en el que "num" efectivamente vale 0 y el bloque de la sentencia "if" es finalmente accedido. Aquí se
+            dará
+            entonces una suerte de efecto boomerang, donde la función actualmente invocada retorna el valor que le
+            corresponde a la función que la ha invocado. De este modo, al llegar a 0,el último llamado recursivo
+            guardará en
+            la celda reservada para el valor de retorno el valor 1 (porque, recordemos, el factorial de 0 es, por
+            definición, 1). Para ver este "regreso" de manera ordenada, repitamos, aunque resulte tedioso, los cinco
+            llamados vistos previamente, pero de forma inversa:
+            <br>
+            <strong>5.</strong> la función retorna el valor de 1 * factorial (1 - 1). Como el factorial de uno es cero,
+            la función
+            retorna 1;
+            <br>
+            <strong>4.</strong> la función retorna el valor de 2 * factorial (2 - 1). Como el factorial de uno es uno,
+            la
+            función
+            retorna
+            2 *
+            1, o sea 2;
+            <br>
+            <strong>3.</strong> la función retorna el valor de 3 * factorial (3 - 1). Como el factorial de 2 es 2, el
+            retorno de esta
+            función
+            es 3 * 2, o sea 6.
+            <br>
+            <strong>2.</strong> la función retorna el valor de 4 * factorial (4 - 1). Como el factorial de 3 es 6, el
+            valor retornado
+            es
+            4 *
+            3. El resultado final devuelto por la función será 12, que es en efecto el factorial de 4.
+            <br>
+            Vale aclarar que cada vez que devuelve el resultado que le correponde, la función recursiva que está en
+            ejecución se desaloja (se "desapila") de la memoria. El único registro que queda de su ejecución es la
+            celda
+            reservada para su valor de retorno. Hay como una suerte de espiral que se contrae cada vez más hasta
+            encontrar
+            su caso base. Una vez encontrado, el espiral comienza a abrirse hasta volver a la función originalmente
+            invocada, que ahora poseerá el resultado correcto.
+            <br>
+            De este modo, entre pilas de datos, planillas de Excel, paradojas de Zenón y muñecas rusas he intentado
+            con
+            la
+            mejor voluntad dar un marco explicativo al método de la recursión, algo que probablemente yo mismo,
+            atrapado en
+            el bucle de la ceguera intelectual, nunca alcance a comprender del todo. Me consuela la creencia de que
+            por
+            algo
+            se empieza.
+        </p>
+
+        <div class="share">
+            <a class="link" href="https://www.twitter.com" target="_blank" rel="noopener norreferer"><img
+                    src="images/icons8-twitter.svg" alt="twitter icon"></a>
+            <a class="link" href="https://.instagram.com" target="_blank" rel="noopener norreferer"><img
+                    src="images/icons8-instagram.svg" alt="instagram icon"></a>
+        </div>
+
+        <div class="attribution">
+            <img src="images/cc_logo.png" alt="Logo de Creative Commons" width="20px" height="20px">
+            <img src="images/cc_by_logo.png" alt="Logo de atribución de Creative Commons" width="20px" height="20px">
+            <span class="text"><a href="https://tecnocultura-unlp.github.io/blog_linktr.ee/">Mauro Kein</a></span>
+        </div>
+
+    </article>
+</body>
+
+</html>
