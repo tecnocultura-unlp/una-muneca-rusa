@@ -45,8 +45,8 @@
             vidas de
             este mundo. En el campo de la programación, un concepto similar ha sido ampliamente utilizado para la
             construcción de algoritmos eficientes y la solución de algunos problemas específicos. Su nombre es
-            recursión, y tanto me costó ejercerlo en la práctica que me gustará intentar explicarlo con palabras. Tal
-            vez de esa manera pueda por fin utilizarlo sin sufrir, por enésima vez, la estrepitosa caída en el loop
+            recursión, y tanto me costó ejercerlo en la práctica que me gustaría intentar explicarlo con palabras. Tal
+            vez de esa manera pueda por fin utilizarlo sin sufrir, por enésima vez, la estrepitosa caída en el abismo del loopeo
             infinito.
         </p>
 
@@ -153,7 +153,7 @@
             factorial del número 0 es igual 1 (una de esas cosas que quienes estudiamos en la Facultad de Humanidades
             nos veríamos en la tentación de discutir hasta el hartazgo, pero que en las ciencias exactas se toman como
             una premisa incuestionable; dicho sea de paso, para el ejemplo que estamos presentando mejor es que así
-            sea). Ya sabemos entonces cuál es la muñeca rusa que ocupará el núcleo central de la *matrioshka*: el
+            sea). Ya sabemos entonces cuál es la muñeca rusa que ocupará el núcleo central de la <em>matrioshka</em>: el
             cálculo del factorial de 0, cuyo resultado siempre es 1. Veamos ahora el diseño de una solución posible a
             este problema.
         </p>
@@ -179,7 +179,7 @@
 
     else:
 
-      return num * factorial(num - 1)
+      return num*factorial(num - 1)
             </code>
         </pre>
         <p>
@@ -220,7 +220,7 @@
             una celda vacía, en este caso, que será la encargada de guardar lo que se denomina el "valor de retorno"
             de
             la
-            función (el valor devuelto cuando la instrucción utiliza la palabra *return*). Veamos paso a paso cómo
+            función (el valor devuelto cuando la instrucción utiliza la palabra <em>return</em>). Veamos paso a paso cómo
             se
             ejecutará la función factorial:
             <br>
@@ -292,15 +292,15 @@
             valor retornado
             es
             4 *
-            3. El resultado final devuelto por la función será 12, que es en efecto el factorial de 4.
+            6. El resultado final devuelto por la función será 24, que en efecto es el factorial de 4.
             <br>
             Vale aclarar que cada vez que devuelve el resultado que le correponde, la función recursiva que está en
             ejecución se desaloja (se "desapila") de la memoria. El único registro que queda de su ejecución es la
             celda
-            reservada para su valor de retorno. Hay como una suerte de espiral que se contrae cada vez más hasta
+            reservada para su valor de retorno. Hay como una suerte de espiral que se contrae sobre sí hasta
             encontrar
-            su caso base. Una vez encontrado, el espiral comienza a abrirse hasta volver a la función originalmente
-            invocada, que ahora poseerá el resultado correcto.
+            su caso base. Una vez encontrado, ese espiral comienza a abrirse hasta volver a la función originalmente
+            invocada, que ahora contendrá el valor buscado desde el principio.
             <br>
             De este modo, entre pilas de datos, planillas de Excel, paradojas de Zenón y muñecas rusas he intentado
             con
